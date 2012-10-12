@@ -799,13 +799,6 @@ static int atmel_touch_sysfs_init(void)
 		printk(KERN_ERR "[TP]TOUCH_ERR: create_file RESET failed\n");
 		return ret;
 	}
-#ifdef CONFIG_TOUCHSCREEN_ATMEL_SWEEP2WAKE
-    ret = sysfs_create_file(android_touch_kobj, &dev_attr_sweep2wake.attr);
-    if (ret) {
-        printk(KERN_ERR "%s: sysfs_create_file failed\n", __func__);
-        return ret;
-    }
-#endif
 	return 0;
 }
 
@@ -824,9 +817,6 @@ static void atmel_touch_sysfs_deinit(void)
 	sysfs_remove_file(android_touch_kobj, &dev_attr_vendor.attr);
 	sysfs_remove_file(android_touch_kobj, &dev_attr_gpio.attr);
 	sysfs_remove_file(android_touch_kobj, &dev_attr_reset.attr);
-	#ifdef CONFIG_TOUCHSCREEN_ATMEL_SWEEP2WAKE
-	    sysfs_remove_file(android_touch_kobj, &dev_attr_sweep2wake.attr);
-	#endif
 	kobject_del(android_touch_kobj);
 }
 
@@ -2606,10 +2596,6 @@ static int atmel_ts_suspend(struct i2c_client *client, pm_message_t mesg)
 	printk(KERN_INFO "%s:[TP]done\n", __func__);
 	return 0;
 }
-
-#ifdef CONFIG_TOUCHSCREEN_ATMEL_SWEEP2WAKE
-}
-#endif
 
 static int atmel_ts_resume(struct i2c_client *client)
 {
