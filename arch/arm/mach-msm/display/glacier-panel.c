@@ -514,6 +514,7 @@ static struct nov_regs sony_init_seq[] = {
 	{0x9180, 0x00D1},
 	{0x9280, 0x00FB},
 	{0x9380, 0x007F},
+	{0x2900, 0x0000},
 	{0x22c0, 0x0006},
 	{0x4400, 0x0002},
 	{0x4401, 0x0058},
@@ -638,16 +639,16 @@ mddi_novatec_power(struct msm_mddi_client_data *client_data, int on)
 		vreg_enable(OJ_2V85);
 		vreg_enable(V_LCMIO_2V8);
 		vreg_enable(V_LCMIO_1V8);
-
 		gpio_set_value(GLACIER_LCD_RSTz, 1);
-		hr_msleep(13);
+		hr_msleep(1);
 		gpio_set_value(GLACIER_LCD_RSTz, 0);
-		hr_msleep(13);
+		hr_msleep(1);
 		gpio_set_value(GLACIER_LCD_RSTz, 1);
-		hr_msleep(13);
+		hr_msleep(15);
 
 	} else {
 		gpio_set_value(GLACIER_LCD_RSTz, 0);
+		hr_msleep(10);
 		vreg_disable(V_LCMIO_2V8);
 		vreg_disable(V_LCMIO_1V8);
 		/* OJ_2V85*/
