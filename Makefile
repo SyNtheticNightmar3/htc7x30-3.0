@@ -380,7 +380,7 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -marm -mtune=cortex-a8 -march=armv7-a \
 		   -funswitch-loops -fpredictive-commoning \
 		   -fmodulo-sched -fmodulo-sched-allow-regmoves \
-		   -mfpu=neon -mfloat-abi=hard
+		   -mfpu=neon -mfloat-abi=soft
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
