@@ -23,12 +23,12 @@
 #include <linux/leds-pm8058.h>
 #include <linux/wakelock.h>
 
-#ifdef CONFIG_TOUCHSCREEN_ATMEL_SWEEP2WAKE
-#include <linux/atmel_qt602240.h>
-#endif
-
 #ifdef CONFIG_HTC_HEADSET_MISC
 #include <mach/htc_headset_misc.h>
+#endif
+
+#ifdef CONFIG_TOUCHSCREEN_ATMEL_SWEEP2WAKE
+#include <linux/atmel_qt602240.h>
 #endif
 
 #ifdef CONFIG_HTC_HEADSET_MISC

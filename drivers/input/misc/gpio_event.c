@@ -172,7 +172,7 @@ static int gpio_event_probe(struct platform_device *pdev)
 #ifdef CONFIG_TOUCHSCREEN_ATMEL_SWEEP2WAKE
 		if (!strcmp(input_dev->name, "glacier-keypad")) {
 			sweep2wake_setdev(input_dev);
-			printk(KERN_INFO "[sweep2wake]: set device %s\n", input_dev->name);
+			printk(KERN_INFO "[sweep2wake]: set keypad device as %s\n", input_dev->name);
 		}
 #endif
 	}

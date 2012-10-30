@@ -502,7 +502,6 @@ struct atmel_config_data {
 };
 
 #ifdef CONFIG_TOUCHSCREEN_ATMEL_SWEEP2WAKE
-/* Sweep2Wake */
 extern void sweep2wake_setdev(struct input_dev * input_device);
 extern void sweep2wake_setleddev(struct led_classdev * led_dev);
 #endif
